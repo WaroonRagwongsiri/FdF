@@ -6,7 +6,7 @@
 #    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/04 21:52:54 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/04 22:33:49 by waroonwork@      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,36 +15,46 @@ NAME			:=	fdf
 CC				:=	cc
 CFLAG			:=	-Wall -Wextra -Werror -g3
 
+# Path for file
 INC_DIR			:=	includes/
 SRCS_DIR		:=	srcs/
 OBJS_DIR		:=	objs/
 
+# Srcs file
 SRCS_FILES		:=	main.c
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS_FILES:%.c=$(OBJS_DIR)%.o)
 
-LIBFT_DIR		:=	libft
+# Libft
+LIBFT_DIR		:=	libft/
+LIBFT_INC_DIR	:=	$(LIBFT_DIR)/includes
 LIBFT			:=	libft.a
 
+# MLX42
 MLX42_DIR		:=	MLX42/
+MLX42_INC_DIR	:=	$(MLX42_DIR)/include/MLX42/
 MLX42			:=	libmlx42.a
 
 # Main Rule
 all				:	$(NAME) Makefile
 
-$(NAME)			:	$(OBJS) $(LIBFT) Makefile
-	$(CC) $(CFLAG) -I$(INC_DIR) $(OBJS) $(LIBFT) -o $@
+$(NAME)			:	$(OBJS) $(LIBFT) $(MLX42) Makefile
+	$(CC) $(CFLAG) $(OBJS) $(LIBFT) $(MLX42) -o $@
 
-$(LIBFT)		:
-	@make -C libft
-	@cp libft/libft.a .
-
-$(OBJS_DIR)%.o	: $(SRCS_DIR)%.c | $(OBJS_DIR)
-	$(CC) $(CFLAG) -I$(INC_DIR) -c $< -o $@
+$(OBJS_DIR)%.o	: $(SRCS_DIR)%.c | $(MLX42) $(OBJS_DIR)
+	$(CC) $(CFLAG) -c $< -o $@ \
+	-I $(INC_DIR) -I $(MLX42_INC_DIR) -I $(LIBFT_INC_DIR)
 
 $(OBJS_DIR)		:
 	@mkdir -p $@
+
+# Libft
+libft			:	$(LIBFT)
+
+$(LIBFT)		:
+	@make -C $(LIBFT_DIR)
+	@cp $(LIBFT_DIR)libft.a .
 
 # MLX42 for this project
 mlx				:	$(MLX42)
@@ -60,13 +70,12 @@ $(MLX42_DIR)	:
 # Other required rules
 clean			:
 	rm -rf $(OBJS_DIR)
+	rm -rf $(LIBFT) $(MLX42)
 	rm -rf $(MLX42_DIR)
-	rm $(LIBFT) $(MLX42)
-	@make -C libft clean
+	@make -C libft fclean
 
 fclean			:	clean
 	rm -f $(NAME)
-	@make -C libft fclean
 
 re				:	fclean all
 
