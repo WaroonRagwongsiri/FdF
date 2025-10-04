@@ -6,7 +6,7 @@
 #    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/04 22:33:49 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/04 22:39:59 by waroonwork@      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME			:=	fdf
 
 CC				:=	cc
 CFLAG			:=	-Wall -Wextra -Werror -g3
+LDFLAGS			:=	-ldl -lglfw -pthread -lm
 
 # Path for file
 INC_DIR			:=	includes/
@@ -40,7 +41,7 @@ MLX42			:=	libmlx42.a
 all				:	$(NAME) Makefile
 
 $(NAME)			:	$(OBJS) $(LIBFT) $(MLX42) Makefile
-	$(CC) $(CFLAG) $(OBJS) $(LIBFT) $(MLX42) -o $@
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX42) $(LDFLAGS) -o $@
 
 $(OBJS_DIR)%.o	: $(SRCS_DIR)%.c | $(MLX42) $(OBJS_DIR)
 	$(CC) $(CFLAG) -c $< -o $@ \
