@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/04 20:19:24 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/04 20:33:36 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define FDF_H
 
 # include "../libft/includes/libft.h"
+# include <string.h>
 
 #endif
