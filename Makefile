@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
+#    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/22 16:12:41 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/22 19:00:58 by waragwon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIBFT			:=	libft.a
 
 # MLX42
 MLX42_DIR		:=	MLX42/
-MLX42_INC_DIR	:=	$(MLX42_DIR)/include/MLX42/
+MLX42_INC_DIR	:=	$(MLX42_DIR)/include/
 MLX42			:=	libmlx42.a
 
 # Main Rule
