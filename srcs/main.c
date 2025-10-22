@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/22 19:29:29 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/22 20:00:53 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,31 @@ void	my_keyhook(mlx_key_data_t keydata, void *params)
 
 	mlx = params;
 	mlx_ctx = mlx->context;
-	img = (mlx_image_t *)(mlx_ctx->images->next->content);
-	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_RELEASE)
+	img = (mlx_image_t *)(mlx_ctx->images->content);
+	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 		mlx_close_window(mlx);
-	if (keydata.key == MLX_KEY_B && keydata.action == MLX_RELEASE)
-		memset(img->pixels, 0, img->width * img->height * sizeof(int32_t));
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
-		memset(img->pixels, 255, img->width * img->height * sizeof(int32_t));
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
-		img->enabled = !img->enabled;
+	if (keydata.key == MLX_KEY_UP && keydata.action == MLX_REPEAT)
+		img->instances->y -= 5;
+	if (keydata.key == MLX_KEY_DOWN && keydata.action == MLX_REPEAT)
+		img->instances->y += 5;
+	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_REPEAT)
+		img->instances->x -= 5;
+	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_REPEAT)
+		img->instances->x += 5;
 }
 
 int	main(void)
 {
 	mlx_t		*mlx;
-	mlx_image_t	*img1;
-	mlx_image_t	*img2;
+	mlx_image_t	*img;
 
 	mlx = mlx_init(WIDTH, HEIGHT, "Fdf", false);
 	if (!mlx)
 		return (EXIT_FAILURE);
-	img1 = mlx_new_image(mlx, 256, 256);
-	img2 = mlx_new_image(mlx, 256, 256);
-	if (!img1 || !img2 || (mlx_image_to_window(mlx, img1, 0, 0) < 0) || \
-		(mlx_image_to_window(mlx, img2, 256, 256) < 0))
+	img = mlx_new_image(mlx, 100, 100);
+	if (!img || (mlx_image_to_window(mlx, img, 0, 0) < 0))
 		return (mlx_terminate(mlx), EXIT_FAILURE);
-	memset(img1->pixels, 255, img1->width * img1->height * sizeof(int32_t));
-	memset(img2->pixels, 255, img1->width * img1->height * sizeof(int32_t));
+	memset(img->pixels, 255, img->width * img->height * sizeof(int32_t));
 	mlx_key_hook(mlx, &my_keyhook, mlx);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
