@@ -6,7 +6,7 @@
 #    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/04 22:39:59 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/22 16:12:41 by waroonwork@      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,15 +71,15 @@ $(MLX42_DIR)	:
 # Other required rules
 clean			:
 	rm -rf $(OBJS_DIR)
-	rm -rf $(LIBFT) $(MLX42)
-	rm -rf $(MLX42_DIR)
 	@make -C libft fclean
 
 fclean			:	clean
 	rm -f $(NAME)
+	rm -rf $(LIBFT) $(MLX42)
+	rm -rf $(MLX42_DIR)
 
 re				:	fclean all
 
 bonus			:	all
 
-.PHONY			:	all clean fclean re bonus
+.PHONY			:	all clean fclean re bonus libft mlx
