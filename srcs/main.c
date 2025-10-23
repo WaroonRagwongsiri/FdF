@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 15:45:01 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/23 15:54:08 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc != 2 || !valid_file_name(argv[1]))
+	if (argc != 2 || !is_valid_file_name(argv[1]))
 		exit_error(FORMAT_ERR);
 	return (0);
 }
