@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 16:34:19 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/23 17:20:06 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@
 # include "libft.h"
 # include "MLX42/MLX42.h"
 # include "MLX42/MLX42_Int.h"
+# include "../get_next_line/get_next_line.h"
 # include <string.h>
 # include <limits.h>
+# include <fcntl.h>
 
 # define FORMAT_ERR "Usage : ./fdf_linux <filename>.fdf"
+# define FILE_ERR "File cannot openned"
+# define MALLOC_ERR "Malloc Failed"
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -80,5 +84,8 @@ bool	is_readable_file(char *filename);
 // Fdf
 t_fdf	*init_fdf(char *filename);
 void	init_map(t_map *map);
+
+// Parser
+t_map	*parser(char *filename);
 
 #endif
