@@ -6,7 +6,7 @@
 #    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/22 19:00:58 by waragwon         ###   ########.fr        #
+#    Updated: 2025/10/23 15:51:48 by waragwon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,13 @@ LDFLAGS			:=	-ldl -lglfw -pthread -lm
 # Path for file
 INC_DIR			:=	includes/
 SRCS_DIR		:=	srcs/
-OBJS_DIR		:=	objs/
 
 # Srcs file
-SRCS_FILES		:=	main.c
+SRCS_FILES		:=	main.c \
+					utils/exit_error.c utils/valid_file.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
-OBJS			:=	$(SRCS_FILES:%.c=$(OBJS_DIR)%.o)
+OBJS			:=	$(SRCS:%.c=%.o)
 
 # Libft
 LIBFT_DIR		:=	libft/
@@ -43,12 +43,9 @@ all				:	$(NAME) Makefile
 $(NAME)			:	$(OBJS) $(LIBFT) $(MLX42) Makefile
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX42) $(LDFLAGS) -o $@
 
-$(OBJS_DIR)%.o	: $(SRCS_DIR)%.c | $(MLX42) $(OBJS_DIR)
+%.o				:	%.c | $(MLX42)
 	$(CC) $(CFLAG) -c $< -o $@ \
 	-I $(INC_DIR) -I $(MLX42_INC_DIR) -I $(LIBFT_INC_DIR)
-
-$(OBJS_DIR)		:
-	@mkdir -p $@
 
 # Libft
 libft			:	$(LIBFT)
@@ -70,7 +67,7 @@ $(MLX42_DIR)	:
 
 # Other required rules
 clean			:
-	rm -rf $(OBJS_DIR)
+	rm -f $(OBJS)
 	@make -C libft fclean
 
 fclean			:	clean

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_fdf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 15:45:01 by waragwon         ###   ########.fr       */
+/*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
+/*   Updated: 2025/10/23 15:32:23 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char **argv)
+t_fdf	*init_fdf(char *filename)
 {
-	if (argc != 2 || !valid_file_name(argv[1]))
-		exit_error(FORMAT_ERR);
-	return (0);
+	static t_fdf	fdf;
+
+	return (&fdf);
 }

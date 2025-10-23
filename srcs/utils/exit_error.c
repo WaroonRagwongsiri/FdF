@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 15:45:01 by waragwon         ###   ########.fr       */
+/*   Created: 2025/10/23 15:34:43 by waragwon          #+#    #+#             */
+/*   Updated: 2025/10/23 15:37:37 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char **argv)
+void	exit_error(char *err_msg)
 {
-	if (argc != 2 || !valid_file_name(argv[1]))
-		exit_error(FORMAT_ERR);
-	return (0);
+	ft_putstr_fd(err_msg, 2);
+	exit(EXIT_FAILURE);
 }
