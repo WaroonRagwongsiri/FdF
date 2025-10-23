@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 18:32:35 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/23 19:01:31 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define FORMAT_ERR "Usage : ./fdf_linux <filename>.fdf"
 # define FILE_ERR "File cannot openned"
 # define MALLOC_ERR "Malloc Failed"
+# define INVALID_MAP "Invalid Map"
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -91,6 +92,6 @@ void	init_map(t_map *map);
 
 // Parser
 t_map	*parser(char *filename);
-void	set_dimension(t_map *map, int fd);
+void	set_row(t_map *map, int fd);
 
 #endif
