@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/23 16:45:12 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:26:44 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_fdf	*init_fdf(char *filename)
 {
 	static t_fdf	fdf;
 
-	init_map(fdf.map);
+	fdf.map = parser(filename);
 	return (&fdf);
 }
 

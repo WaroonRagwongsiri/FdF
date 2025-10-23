@@ -88,7 +88,7 @@ char	*append_n_str(char *old, char *read, size_t index_lf)
 	return (new);
 }
 
-ssize_t	ft_strchr(const char *s, int c)
+ssize_t	ft_strchr_index(const char *s, int c)
 {
 	ssize_t	i;
 	ssize_t	len;

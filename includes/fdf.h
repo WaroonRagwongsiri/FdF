@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 17:20:06 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/23 18:32:35 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "libft.h"
 # include "MLX42/MLX42.h"
 # include "MLX42/MLX42_Int.h"
-# include "../get_next_line/get_next_line.h"
+# include "get_next_line.h"
 # include <string.h>
 # include <limits.h>
 # include <fcntl.h>
@@ -80,6 +80,10 @@ typedef struct s_fdf
 void	exit_error(char *err_msg);
 bool	is_valid_file_name(char *filename);
 bool	is_readable_file(char *filename);
+void	exit_error_map(t_map *map, int fd, char *err_msg);
+void	free_map(t_map *map);
+void	free_map2d(t_point_2d **map2d, int n);
+void	free_map3d(t_point_3d **map3d, int n);
 
 // Fdf
 t_fdf	*init_fdf(char *filename);
@@ -87,5 +91,6 @@ void	init_map(t_map *map);
 
 // Parser
 t_map	*parser(char *filename);
+void	set_dimension(t_map *map, int fd);
 
 #endif

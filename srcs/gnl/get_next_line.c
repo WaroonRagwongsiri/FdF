@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 22:45:18 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/09/01 11:43:52 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/23 18:30:20 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "get_next_line.h"
 
 char	*get_next_line(int fd);
 
 char	*get_next_line(int fd)
 {
-	static char	*readed[1024] = {0};
+	static char	*readed = NULL;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	readed[fd] = update_readed(fd, readed[fd]);
-	if (!readed[fd])
+	readed = update_readed(fd, readed);
+	if (!readed)
 		return (NULL);
-	line = get_line(readed[fd]);
-	readed[fd] = trim_read(readed[fd]);
+	line = get_line(readed);
+	readed = trim_read(readed);
 	if (!line)
 		return (NULL);
 	if (line[0] == '\0')
@@ -71,7 +71,7 @@ char	*read_file(int fd)
 			return (free(buffer), free(reading), NULL);
 		buffer[byte_reads] = '\0';
 		reading = append_n_str(reading, buffer, byte_reads);
-		if (!reading || ft_strchr(buffer, '\n') >= 0)
+		if (!reading || ft_strchr_index(buffer, '\n') >= 0)
 			break ;
 	}
 	free(buffer);

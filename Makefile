@@ -6,7 +6,7 @@
 #    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/23 15:51:48 by waragwon         ###   ########.fr        #
+#    Updated: 2025/10/23 18:29:29 by waragwon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,10 @@ SRCS_DIR		:=	srcs/
 
 # Srcs file
 SRCS_FILES		:=	main.c \
-					utils/exit_error.c utils/valid_file.c \
+					utils/exit_error.c utils/valid_file.c utils/free_map.c \
+					gnl/get_next_line.c gnl/get_next_line_utils.c \
+					parser/parser.c \
+					fdf/init_fdf.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
