@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_fdf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/23 18:26:44 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/24 21:01:55 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ t_fdf	*init_fdf(char *filename)
 // x_offset = WIDTH / 2;
 // y_offset = HEIGHT / 2;
 // interval = 0;
-// alpha = ISO_ALPHA;
-// beta = ISO_BETA;
+// alpha = 0.46373398;
+// beta = 0.46373398;
 // x_proj = 0;
 // y_proj = 0;
 // z_proj = 0;
@@ -49,8 +49,8 @@ void	init_map(t_map *map)
 	map->x_offset = WIDTH / 2;
 	map->y_offset = HEIGHT / 2;
 	map->interval = 0;
-	map->alpha = ISO_ALPHA;
-	map->beta = ISO_BETA;
+	map->alpha = 0.46373398;
+	map->beta = 0.46373398;
 	map->x_proj = 0;
 	map->y_proj = 0;
 	map->z_proj = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/23 19:01:31 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/24 20:41:25 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 # include <limits.h>
 # include <fcntl.h>
 
+# define BACKGROUND 0x101018FF
+
+# define BLUE 0x0000FFFF
+# define CYAN_BLUE 0x0080FFFF
+# define CYAN 0x00FFFFFF
+# define AQUA_GREEN 0x00FF80FF
+# define GREEN 0x00FF00FF
+# define YELLOW_GREEN 0x80FF00FF
+# define YELLOW 0xFFFF00FF
+# define ORANGE 0xFF8000FF
+# define RED 0xFF0000FF
+# define WHITE 0xFFFFFFFF
+# define PURPLE 0x800080FF
+
 # define FORMAT_ERR "Usage : ./fdf_linux <filename>.fdf"
 # define FILE_ERR "File cannot openned"
 # define MALLOC_ERR "Malloc Failed"
@@ -28,9 +42,6 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
-
-# define ISO_ALPHA 0.615479
-# define ISO_BETA  0.785398
 
 typedef struct s_point_3d
 {
@@ -92,6 +103,6 @@ void	init_map(t_map *map);
 
 // Parser
 t_map	*parser(char *filename);
-void	set_row(t_map *map, int fd);
+void	map_dimension(t_map *map, int fd);
 
 #endif

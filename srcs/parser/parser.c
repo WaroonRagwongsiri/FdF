@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:36:46 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/23 19:01:31 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/24 21:14:21 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,35 @@ t_map	*parser(char *filename)
 		exit_error(MALLOC_ERR);
 	}
 	init_map(map);
-	set_row(map, fd);
+	map_dimension(map, fd);
+	if (map->row == 0 || map->col == 0)
+		exit_error_map(map, fd, INVALID_MAP);
 	close(fd);
 	return (map);
 }
 
-void	set_row(t_map *map, int fd)
+void	map_dimension(t_map *map, int fd)
 {
 	char	*line;
 
 	line = get_next_line(fd);
+	if (!line)
+		return ;
+	if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = '\0';
+	map->col = count_word_split(line, ' ');
 	while (line)
 	{
+		if (line[ft_strlen(line) - 1] == '\n')
+			line[ft_strlen(line) - 1] = '\0';
+		if (count_word_split(line, ' ') == 0) ;
+		else if (map->col != (int) count_word_split(line, ' '))
+		{
+			free(line);
+			exit_error_map(map, fd, INVALID_MAP);
+		}
 		free(line);
-		map->row += 1;
 		line = get_next_line(fd);
+		map->row++;
 	}
 }
