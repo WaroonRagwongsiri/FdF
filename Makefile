@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
+#    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/23 18:29:29 by waragwon         ###   ########.fr        #
+#    Updated: 2025/10/24 21:43:49 by waroonwork@      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS_DIR		:=	srcs/
 # Srcs file
 SRCS_FILES		:=	main.c \
 					utils/exit_error.c utils/valid_file.c utils/free_map.c \
+					utils/malloc_grid.c utils/max_min.c \
 					gnl/get_next_line.c gnl/get_next_line_utils.c \
 					parser/parser.c \
 					fdf/init_fdf.c \

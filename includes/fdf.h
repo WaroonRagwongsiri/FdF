@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 20:41:25 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/24 21:42:24 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,17 @@ void	exit_error_map(t_map *map, int fd, char *err_msg);
 void	free_map(t_map *map);
 void	free_map2d(t_point_2d **map2d, int n);
 void	free_map3d(t_point_3d **map3d, int n);
+void	malloc_grid_and_update_interval(t_map *map);
+int		ft_max(int a, int b);
+int		ft_min(int a, int b);
 
 // Fdf
 t_fdf	*init_fdf(char *filename);
 void	init_map(t_map *map);
 
-// Parser
-t_map	*parser(char *filename);
+// parse_dim
+t_map	*parse_dim(char *filename);
 void	map_dimension(t_map *map, int fd);
+void	parse_map(t_map *map, char *filename);
 
 #endif

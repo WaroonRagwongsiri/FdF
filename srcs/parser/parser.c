@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parse_dim.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "fdf.h"
 
-t_map	*parser(char *filename)
+t_map	*parse_dim(char *filename)
 {
 	int		fd;
 	t_map	*map;
@@ -58,4 +58,10 @@ void	map_dimension(t_map *map, int fd)
 		line = get_next_line(fd);
 		map->row++;
 	}
+}
+
+void	parse_map(t_map *map, char *filename)
+{
+	(void) map;
+	(void) filename;
 }
