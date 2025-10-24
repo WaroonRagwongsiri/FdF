@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   fill_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 15:34:43 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/24 23:11:19 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/10/24 22:35:31 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/10/25 00:01:23 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	exit_error(char *err_msg)
+void	fill_map3d(t_map *map)
 {
-	ft_putstr_fd(err_msg, 2);
-	exit(EXIT_FAILURE);
-}
+	int			row;
+	int			col;
+	t_point_3d	*point;
 
-void	exit_error_map(t_map *map, int fd, char *err_msg)
-{
-	free_map(map);
-	if (fd != -1)
-		close(fd);
-	exit_error(err_msg);
+	set_offset(map);
+	row = -1;
+	while (++row < map->row)
+	{
+		col = -1;
+		while (++col < map->col)
+		{
+			point = &(map->map3d[row][col]);
+			point->x = convert_x(col, map);
+			point->y = convert_y(row, map);
+			point->z = ft_atoi(map->map_str[row][col]) * (map->interval);
+			point->map_color = convert_rgba(map->map_str[row][col], map);
+		}
+	}
 }

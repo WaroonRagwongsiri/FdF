@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 21:49:19 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 21:49:20 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/25 00:04:15 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,14 @@ void	map_dimension(t_map *map, int fd)
 	if (!line)
 		return ;
 	if (line[ft_strlen(line) - 1] == '\n')
-			line[ft_strlen(line) - 1] = '\0';
+		line[ft_strlen(line) - 1] = '\0';
 	map->col = count_word_split(line, ' ');
 	while (line)
 	{
 		if (line[ft_strlen(line) - 1] == '\n')
 			line[ft_strlen(line) - 1] = '\0';
-		if (count_word_split(line, ' ') == 0) ;
+		if (count_word_split(line, ' ') == 0)
+			;
 		else if (map->col != (int) count_word_split(line, ' '))
 		{
 			free(line);

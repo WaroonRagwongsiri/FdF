@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/24 22:07:47 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/24 23:48:28 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_fdf	*init_fdf(char *filename)
 	fdf.map = parse_dim(filename);
 	parse_map(fdf.map, filename);
 	malloc_grid_and_update_interval(fdf.map);
+	fill_map3d(fdf.map);
 	return (&fdf);
 }
 

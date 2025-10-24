@@ -62,6 +62,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_atoi_base(char *str, char *base);
+int		has_duplicates(char *str);
+int		loop_atoi_base(char *base, char *str, int j);
 
 typedef struct s_list
 {

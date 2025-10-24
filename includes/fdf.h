@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 22:30:38 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/24 23:53:18 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,17 @@
 
 typedef struct s_point_3d
 {
-	double	x;
-	double	y;
-	double	z;
-	int		map_color;
-	int		z_color;
+	double			x;
+	double			y;
+	double			z;
+	unsigned int	map_color;
+	unsigned int	z_color;
 }	t_point_3d;
 
 typedef struct s_point_2d
 {
 	int	x;
 	int	y;
-	int	z;
 	int	rgba;
 }	t_point_2d;
 
@@ -103,7 +102,12 @@ void	malloc_grid_and_update_interval(t_map *map);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 void	clear_gnl(int fd);
+void	str_to_upper(char *str);
+
+// Logs
 void	logs(t_fdf *fdf);
+void	logs_map_str(t_fdf *fdf);
+void	logs_map3d(t_fdf *fdf);
 
 // Fdf
 t_fdf	*init_fdf(char *filename);
@@ -113,5 +117,12 @@ void	init_map(t_map *map);
 t_map	*parse_dim(char *filename);
 void	map_dimension(t_map *map, int fd);
 void	parse_map(t_map *map, char *filename);
+
+// Maps
+void	fill_map3d(t_map *map);
+void	set_offset(t_map *map);
+double	convert_x(int col, t_map *map);
+double	convert_y(int row, t_map *map);
+int		convert_rgba(char *point, t_map	*map);
 
 #endif

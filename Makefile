@@ -6,7 +6,7 @@
 #    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/24 22:30:44 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/24 23:49:59 by waroonwork@      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,11 @@ SRCS_DIR		:=	srcs/
 SRCS_FILES		:=	main.c \
 					utils/exit_error.c utils/valid_file.c utils/free_map.c \
 					utils/malloc_grid.c utils/max_min.c utils/clear_gnl.c \
-					utils/logs.c \
+					utils/logs.c utils/str_to_upper.c \
 					gnl/get_next_line.c gnl/get_next_line_utils.c \
 					parser/parse_dim.c parser/parse_map.c \
 					fdf/init_fdf.c \
+					maps/fill_map.c maps/map_utils.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)

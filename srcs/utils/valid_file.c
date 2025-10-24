@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:40:29 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/23 16:22:35 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/25 00:04:48 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ bool	is_readable_file(char *filename)
 {
 	if (access(filename, F_OK | R_OK) == -1)
 		return (false);
-	return (true);	
+	return (true);
 }
