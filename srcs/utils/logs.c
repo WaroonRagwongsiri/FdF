@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   logs.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 22:30:15 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/10/24 22:28:23 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/10/24 22:31:17 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char **argv)
+void	logs(t_fdf *fdf)
 {
-	t_fdf	*fdf;
+	int		row;
+	int		col;
 
-	if (argc != 2 || !is_valid_file_name(argv[1]))
-		exit_error(FORMAT_ERR);
-	fdf = init_fdf(argv[1]);
-	logs(fdf);
-	free_map(fdf->map);
-	return (0);
+	printf("row: %d\ncol: %d\n", fdf->map->row, fdf->map->row);
+	printf("high: %d\nlow: %d\n", fdf->map->high, fdf->map->low);
+	row = -1;
+	while (++row < fdf->map->row)
+	{
+		col = -1;
+		while (++col < fdf->map->col)
+		{
+			printf("%s ", fdf->map->map_str[row][col]);
+		}
+		printf("\n");
+	}
 }

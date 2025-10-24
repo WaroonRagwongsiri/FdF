@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   clear_gnl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 22:30:15 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/10/24 22:20:22 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/10/24 22:20:53 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char **argv)
+void	clear_gnl(int fd)
 {
-	t_fdf	*fdf;
+	char	*line;
 
-	if (argc != 2 || !is_valid_file_name(argv[1]))
-		exit_error(FORMAT_ERR);
-	fdf = init_fdf(argv[1]);
-	logs(fdf);
-	free_map(fdf->map);
-	return (0);
+	line = get_next_line(fd);
+	while (line)
+	{
+		free(line);
+		line = get_next_line(fd);
+	}
+	close(fd);
 }

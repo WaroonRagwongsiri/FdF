@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_dim.c                                           :+:      :+:    :+:   */
+/*   parse_dim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 16:36:46 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/24 21:14:21 by waroonwork@      ###   ########.fr       */
+/*   Created: 2025/10/24 21:49:19 by waroonwork@       #+#    #+#             */
+/*   Updated: 2025/10/24 21:49:20 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,4 @@ void	map_dimension(t_map *map, int fd)
 		line = get_next_line(fd);
 		map->row++;
 	}
-}
-
-void	parse_map(t_map *map, char *filename)
-{
-	(void) map;
-	(void) filename;
 }

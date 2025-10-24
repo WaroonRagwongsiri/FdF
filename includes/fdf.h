@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 21:42:24 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/24 22:30:38 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_map
 	double		z_scale;
 	t_point_2d	**map2d;
 	t_point_3d	**map3d;
+	char		***map_str;
 }	t_map;
 
 typedef struct s_fdf
@@ -96,9 +97,13 @@ void	exit_error_map(t_map *map, int fd, char *err_msg);
 void	free_map(t_map *map);
 void	free_map2d(t_point_2d **map2d, int n);
 void	free_map3d(t_point_3d **map3d, int n);
+void	free_str_arr(char ***arr);
+void	update_map_low_high(t_map *map);
 void	malloc_grid_and_update_interval(t_map *map);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
+void	clear_gnl(int fd);
+void	logs(t_fdf *fdf);
 
 // Fdf
 t_fdf	*init_fdf(char *filename);

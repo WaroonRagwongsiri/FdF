@@ -6,7 +6,7 @@
 /*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/24 21:42:48 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/24 22:07:47 by waroonwork@      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,5 @@ void	init_map(t_map *map)
 	map->z_scale = 1;
 	map->map2d = NULL;
 	map->map3d = NULL;
+	map->map_str = NULL;
 }
