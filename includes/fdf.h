@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 17:02:58 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:27:41 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <limits.h>
 # include <fcntl.h>
+# include <math.h>
 
 # define BACKGROUND 0x101018FF
 
@@ -71,9 +72,9 @@ typedef struct s_map
 	double		interval;
 	double		alpha;
 	double		beta;
-	double		x_proj;
-	double		y_proj;
-	double		z_proj;
+	double		x_rotate;
+	double		y_rotate;
+	double		z_rotate;
 	double		zoom;
 	double		z_scale;
 	t_point_2d	**map2d;
@@ -129,8 +130,25 @@ void	ft_fit_to_window(t_map *map);
 // Colors
 unsigned int	ft_z_color(double z_raw, double low, double high);
 void	set_z_color(t_map *map);
+void	set_background(mlx_image_t *img);
 
 // Draws
 void	draw_menu(t_fdf *fdf);
+void	project_point(t_map *map, int row, int col);
+void	bresenham_step(t_point_2d *curr, t_point_2d a, t_point_2d b, int *err);
+void	bresenham(mlx_image_t *img, t_point_2d a, t_point_2d b);
+void	draw_line(t_fdf *fdf, int row, int col);
+void	draw_image(void *param);
+
+// Draws Utils
+void	rotate_x(double *y, double *z, double alpha);
+void	rotate_y(double *x, double *z, double beta);
+void	rotate_z(double *x, double *y, double gamma);
+
+// Colors inter
+int		interpolate_channel(int start, int end, double percent);
+double	get_percent(int start, int end, int current);
+int		get_channel(int color, int shift);
+int		ft_get_color(t_point_2d cur, t_point_2d a, t_point_2d b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:48:13 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 16:51:52 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:05:56 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,23 @@ void	set_z_color(t_map *map)
 			z_raw = point->z / map->interval;
 			point->z_color = ft_z_color(z_raw, map->low, map->high);
 		}
+	}
+}
+
+void	set_background(mlx_image_t *img)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while ((uint32_t)x < img->width)
+	{
+		y = 0;
+		while ((uint32_t)y < img->height)
+		{
+			mlx_put_pixel(img, x, y, BACKGROUND);
+			y++;
+		}
+		x++;
 	}
 }
