@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 23:38:20 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/29 00:15:32 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@
 # define WHITE 0xFFFFFFFF
 # define PURPLE 0x800080FF
 
-# define ISO_ALPHA 0.46373398
-# define ISO_BETA 0.46373398
-# define DIM_ALPHA 0.6370452 // ~36.47°
-# define DIM_BETA 0.6370452
-# define TRI_ALPHA 0.23186699 // ~13.29°
-# define TRI_BETA 0.23186699
+# define ISO_ALPHA 0.46373398	// ~26.57°
+# define ISO_BETA 0.46373398	// ~26.57°
+# define DIM_ALPHA 0.46373398	// ~26.57°
+# define DIM_BETA 0.78539816	// ~45.00°
+# define TRI_ALPHA 0.52359878	// ~30.00°
+# define TRI_BETA 0.78539816	// ~45.00°
 
 # define ROT_STEP 0.03		// rotation speed (radians per tick)
 # define PAN_STEP 10.0		// pixels per tick
