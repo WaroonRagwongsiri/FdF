@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:48:32 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 20:19:48 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 20:30:19 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	hook_z_scale(mlx_key_data_t keydata, void *param)
 	}
 	if (keydata.key == MLX_KEY_A && keydata.action == MLX_REPEAT)
 	{
-		map->z_scale += Z_SCALE_STEP;
+		map->z_scale -= Z_SCALE_STEP;
 		if (map->z_scale < 0.1)
 			map->z_scale = 0.1;
 	}

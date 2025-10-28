@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:13:10 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 19:13:14 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 20:27:37 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	project_point(t_map *map, int row, int col)
 	new = &(map->map2d[row][col]);
 	p.x = ori->x;
 	p.y = ori->y;
-	p.z = ori->z;
+	p.z = ori->z * map->z_scale;
 	rotate_x(&p.y, &p.z, map->x_rotate);
 	rotate_y(&p.x, &p.z, map->y_rotate);
 	rotate_z(&p.x, &p.y, map->z_rotate);
