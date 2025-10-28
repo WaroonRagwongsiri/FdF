@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:44:46 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 19:35:06 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 23:43:11 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ double	convert_y(int r, t_map *map)
 	offset = (map->row - 1) * map->interval / 2;
 	return ((double)r * (map->interval) - offset);
 }
-
 
 int	convert_rgba(char *point, t_map	*map)
 {

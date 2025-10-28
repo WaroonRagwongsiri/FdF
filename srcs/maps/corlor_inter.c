@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:20:13 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 19:30:19 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 23:43:00 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,11 @@ int	ft_get_color(t_point_2d cur, t_point_2d a, t_point_2d b)
 		percent = get_percent(a.x, b.x, cur.x);
 	else
 		percent = get_percent(a.y, b.y, cur.y);
-	red = interpolate_channel(get_channel(a.rgba, 24), get_channel(b.rgba, 24), percent);
-	green = interpolate_channel(get_channel(a.rgba, 16), get_channel(b.rgba, 16), percent);
-	blue = interpolate_channel(get_channel(a.rgba, 8), get_channel(b.rgba, 8), percent);
+	red = interpolate_channel(get_channel(a.rgba, 24),
+			get_channel(b.rgba, 24), percent);
+	green = interpolate_channel(get_channel(a.rgba, 16),
+			get_channel(b.rgba, 16), percent);
+	blue = interpolate_channel(get_channel(a.rgba, 8),
+			get_channel(b.rgba, 8), percent);
 	return ((red << 24) | (green << 16) | (blue << 8) | 0xFF);
 }

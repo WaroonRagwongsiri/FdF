@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:13:10 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 20:27:37 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 23:41:38 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	project_point(t_map *map, int row, int col)
 	t_point_3d	*ori;
 	t_point_3d	p;
 	t_point_2d	*new;
+	int			x;
+	int			y;
 
 	ori = &(map->map3d[row][col]);
 	new = &(map->map2d[row][col]);
@@ -26,8 +28,10 @@ void	project_point(t_map *map, int row, int col)
 	rotate_x(&p.y, &p.z, map->x_rotate);
 	rotate_y(&p.x, &p.z, map->y_rotate);
 	rotate_z(&p.x, &p.y, map->z_rotate);
-	new->x = (int)((p.x - p.y) * cos(map->alpha) * map->zoom + map->x_offset);
-	new->y = (int)(((p.x + p.y) * sin(map->beta) - p.z) * map->zoom + map->y_offset);
+	x = (int)((p.x - p.y) * cos(map->alpha) * map->zoom + map->x_offset);
+	y = (int)(((p.x + p.y) * sin(map->beta) - p.z) * map->zoom + map->y_offset);
+	new->x = x;
+	new->y = y;
 	if (map->use_z_color)
 		new->rgba = ori->z_color;
 	else
