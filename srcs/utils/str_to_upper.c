@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_to_upper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 23:28:22 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 23:52:11 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/28 21:05:04 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	str_to_upper(char *str)
 	while (*str)
 	{
 		if (*str >= 'a' && *str <= 'z')
-			*str = ft_tolower(*str);
+			*str = ft_toupper(*str);
 		str++;
 	}
 }
