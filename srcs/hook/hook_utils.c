@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:53:22 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 19:32:52 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 20:20:59 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,14 @@ void	ft_fit_to_window(t_map *map)
 		map->zoom = zoom_y;
 	if (map->zoom < 0.1)
 		map->zoom = 0.1;
+}
+
+void	hooks(mlx_key_data_t keydata, void *param)
+{
+	hook_reset(keydata, param);
+	hook_reset(keydata, param);
+	hook_rotate(keydata, param);
+	hook_view(keydata, param);
+	hook_z_scale(keydata, param);
+	hook_projection(keydata, param);
 }

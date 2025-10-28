@@ -6,7 +6,7 @@
 #    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/28 19:20:38 by waragwon         ###   ########.fr        #
+#    Updated: 2025/10/28 20:06:11 by waragwon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ SRCS_FILES		:=	main.c \
 					maps/fill_map.c maps/map_utils.c maps/color.c \
 					maps/draw.c maps/draw_menu.c maps/rotate.c \
 					maps/corlor_inter.c \
-					hook/hook_utils.c \
+					hook/hook_utils.c hook/hook.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)

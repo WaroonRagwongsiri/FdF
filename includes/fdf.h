@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 19:35:40 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 20:19:55 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@
 # define RED 0xFF0000FF
 # define WHITE 0xFFFFFFFF
 # define PURPLE 0x800080FF
+
+#define ISO_ALPHA 0.46373398
+#define ISO_BETA 0.46373398
+#define DIM_ALPHA 0.6370452 // ~36.47°
+#define DIM_BETA 0.6370452
+#define TRI_ALPHA (0.46373398/2) // ~13.29°
+#define TRI_BETA 0.46373398
+
+#define ROT_STEP 0.03		// rotation speed (radians per tick)
+#define PAN_STEP 10.0		// pixels per tick
+#define ZOOM_STEP 1.05		// zoom factor
+#define Z_SCALE_STEP 0.05	// how much zscale changes per tick
 
 # define FORMAT_ERR "Usage : ./fdf_linux <filename>.fdf"
 # define FILE_ERR "File cannot openned"
@@ -149,5 +161,13 @@ int		interpolate_channel(int start, int end, double percent);
 double	get_percent(int start, int end, int current);
 int		get_channel(int color, int shift);
 int		ft_get_color(t_point_2d cur, t_point_2d a, t_point_2d b);
+
+// Hooks
+void	hooks(mlx_key_data_t keydata, void *param);
+void	hook_reset(mlx_key_data_t keydata, void *param);
+void	hook_rotate(mlx_key_data_t keydata, void *param);
+void	hook_view(mlx_key_data_t keydata, void *param);
+void	hook_z_scale(mlx_key_data_t keydata, void *param);
+void	hook_projection(mlx_key_data_t keydata, void *param);
 
 #endif
