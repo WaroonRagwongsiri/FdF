@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hook_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 17:03:12 by waragwon         ###   ########.fr       */
+/*   Created: 2025/10/28 16:53:22 by waragwon          #+#    #+#             */
+/*   Updated: 2025/10/28 16:56:32 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int	main(int argc, char **argv)
+void	ft_fit_to_window(t_map *map)
 {
-	t_fdf	*fdf;
+	double	span_x;
+	double	span_y;
+	double	zoom_x;
+	double	zoom_y;
 
-	if (argc != 2 || !is_valid_file_name(argv[1]))
-		exit_error(FORMAT_ERR);
-	fdf = init_fdf(argv[1]);
-	mlx_image_to_window(fdf->mlx, fdf->screen, 0, 0);
-	draw_menu(fdf);
-	mlx_loop(fdf->mlx);
-	mlx_terminate(fdf->mlx);
-	free_map(fdf->map);
-	return (0);
+	span_x = map->col * map->interval;
+	span_y = map->row * map->interval;
+	zoom_x = (WIDTH * 0.5) / span_x;
+	zoom_y = (HEIGHT * 0.5) / span_y;
+	if (zoom_x < zoom_y)
+		map->zoom = zoom_x;
+	else
+		map->zoom = zoom_y;
+	if (map->zoom < 0.1)
+		map->zoom = 0.1;
 }

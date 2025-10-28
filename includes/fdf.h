@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/24 23:53:18 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/28 17:02:58 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,13 @@ void	set_offset(t_map *map);
 double	convert_x(int col, t_map *map);
 double	convert_y(int row, t_map *map);
 int		convert_rgba(char *point, t_map	*map);
+void	ft_fit_to_window(t_map *map);
+
+// Colors
+unsigned int	ft_z_color(double z_raw, double low, double high);
+void	set_z_color(t_map *map);
+
+// Draws
+void	draw_menu(t_fdf *fdf);
 
 #endif

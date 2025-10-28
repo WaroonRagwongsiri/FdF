@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_fdf.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/24 23:48:28 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/28 16:58:32 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ t_fdf	*init_fdf(char *filename)
 	parse_map(fdf.map, filename);
 	malloc_grid_and_update_interval(fdf.map);
 	fill_map3d(fdf.map);
+	set_z_color(fdf.map);
+	ft_fit_to_window(fdf.map);
+	fdf.mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
+	fdf.screen = mlx_new_image(fdf.mlx, WIDTH, HEIGHT);
 	return (&fdf);
 }
 

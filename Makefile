@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+         #
+#    By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 20:20:04 by waroonwork@       #+#    #+#              #
-#    Updated: 2025/10/24 23:49:59 by waroonwork@      ###   ########.fr        #
+#    Updated: 2025/10/28 17:03:50 by waragwon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,9 @@ SRCS_FILES		:=	main.c \
 					gnl/get_next_line.c gnl/get_next_line_utils.c \
 					parser/parse_dim.c parser/parse_map.c \
 					fdf/init_fdf.c \
-					maps/fill_map.c maps/map_utils.c \
+					maps/fill_map.c maps/map_utils.c maps/color.c \
+					maps/draw.c \
+					hook/hook_utils.c \
 
 SRCS			:=	$(SRCS_FILES:%.c=$(SRCS_DIR)%.c)
 OBJS			:=	$(SRCS:%.c=%.o)
