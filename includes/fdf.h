@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 19:27:41 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:35:40 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ typedef struct s_point_3d
 
 typedef struct s_point_2d
 {
-	int	x;
-	int	y;
-	int	rgba;
+	double			x;
+	double			y;
+	unsigned int	rgba;
 }	t_point_2d;
 
 typedef struct s_map
@@ -121,7 +121,6 @@ void	parse_map(t_map *map, char *filename);
 
 // Maps
 void	fill_map3d(t_map *map);
-void	set_offset(t_map *map);
 double	convert_x(int col, t_map *map);
 double	convert_y(int row, t_map *map);
 int		convert_rgba(char *point, t_map	*map);

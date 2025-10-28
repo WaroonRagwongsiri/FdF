@@ -3,30 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 22:44:46 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/25 00:02:35 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/28 19:35:06 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	set_offset(t_map *map)
+double	convert_x(int c, t_map *map)
 {
-	map->x_offset = (map->col - 1) * map->interval / 2;
-	map->y_offset = (map->row - 1) * map->interval / 2;
+	int	offset;
+
+	offset = (map->col - 1) * map->interval / 2;
+	return ((double)c * (map->interval) - offset);
 }
 
-double	convert_x(int col, t_map *map)
+double	convert_y(int r, t_map *map)
 {
-	return ((double)col * (map->interval) - map->x_offset);
+	int	offset;
+
+	offset = (map->row - 1) * map->interval / 2;
+	return ((double)r * (map->interval) - offset);
 }
 
-double	convert_y(int row, t_map *map)
-{
-	return ((double)row * (map->interval) - map->y_offset);
-}
 
 int	convert_rgba(char *point, t_map	*map)
 {

@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:53:22 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 16:56:32 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:32:52 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_fit_to_window(t_map *map)
 	double	zoom_x;
 	double	zoom_y;
 
+	map->x_offset = WIDTH / 2;
+	map->y_offset = HEIGHT / 2;
 	span_x = map->col * map->interval;
 	span_y = map->row * map->interval;
 	zoom_x = (WIDTH * 0.5) / span_x;

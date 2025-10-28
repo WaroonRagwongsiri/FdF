@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:24:14 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/28 17:03:12 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:31:08 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	fdf = init_fdf(argv[1]);
 	mlx_image_to_window(fdf->mlx, fdf->screen, 0, 0);
 	draw_menu(fdf);
+	mlx_loop_hook(fdf->mlx, draw_image, fdf);
 	mlx_loop(fdf->mlx);
 	mlx_terminate(fdf->mlx);
 	free_map(fdf->map);
