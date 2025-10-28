@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 19:02:36 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 20:32:30 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_fdf	*init_fdf(char *filename)
 // y_rotate = 0;
 // z_rotate = 0;
 // zoom = 1;
-// z_scale = 1;
+// z_scale = 0.5;
 // map2d = NULL;
 // map3d = NULL;
 void	init_map(t_map *map)
@@ -62,7 +62,7 @@ void	init_map(t_map *map)
 	map->y_rotate = 0;
 	map->z_rotate = 0;
 	map->zoom = 1;
-	map->z_scale = 1;
+	map->z_scale = 0.5;
 	map->map2d = NULL;
 	map->map3d = NULL;
 	map->map_str = NULL;
