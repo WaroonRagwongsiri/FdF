@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 20:32:30 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/28 21:14:51 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_fdf	*init_fdf(char *filename)
 // x_offset = WIDTH / 2;
 // y_offset = HEIGHT / 2;
 // interval = 0;
-// alpha = 0.46373398;
-// beta = 0.46373398;
+// alpha = ISO_ALPHA;
+// beta = ISO_BETA;
 // x_rotate = 0;
 // y_rotate = 0;
 // z_rotate = 0;
@@ -56,8 +56,8 @@ void	init_map(t_map *map)
 	map->x_offset = WIDTH / 2;
 	map->y_offset = HEIGHT / 2;
 	map->interval = 0;
-	map->alpha = 0.46373398;
-	map->beta = 0.46373398;
+	map->alpha = ISO_ALPHA;
+	map->beta = ISO_BETA;
 	map->x_rotate = 0;
 	map->y_rotate = 0;
 	map->z_rotate = 0;
