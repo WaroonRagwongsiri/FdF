@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_dim.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: waroonwork@gmail.com <WaroonRagwongsiri    +#+  +:+       +#+        */
+/*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 21:49:19 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/25 00:04:15 by waroonwork@      ###   ########.fr       */
+/*   Updated: 2025/10/29 10:58:50 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_map	*parse_dim(char *filename)
 	init_map(map);
 	map_dimension(map, fd);
 	if (map->row == 0 || map->col == 0)
-		exit_error_map(map, fd, INVALID_MAP);
+		exit_error_map(map, fd, INVALID_MAP_ERR);
 	close(fd);
 	return (map);
 }
@@ -53,7 +53,7 @@ void	map_dimension(t_map *map, int fd)
 		else if (map->col != (int) count_word_split(line, ' '))
 		{
 			free(line);
-			exit_error_map(map, fd, INVALID_MAP);
+			exit_error_map(map, fd, INVALID_MAP_ERR);
 		}
 		free(line);
 		line = get_next_line(fd);

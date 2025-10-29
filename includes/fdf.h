@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 20:19:07 by waroonwork@       #+#    #+#             */
-/*   Updated: 2025/10/29 00:15:32 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/29 10:58:59 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@
 # define FORMAT_ERR "Usage : ./fdf_linux <filename>.fdf"
 # define FILE_ERR "File cannot openned"
 # define MALLOC_ERR "Malloc Failed"
-# define INVALID_MAP "Invalid Map"
+# define INVALID_MAP_ERR "Invalid Map"
+# define MLX_ERR "MLX Error"
 
 # define WIDTH 1920
 # define HEIGHT 1080

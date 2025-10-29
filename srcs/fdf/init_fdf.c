@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:30:00 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 21:14:51 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/29 10:59:25 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_fdf	*init_fdf(char *filename)
 	set_z_color(fdf.map);
 	ft_fit_to_window(fdf.map);
 	fdf.mlx = mlx_init(WIDTH, HEIGHT, "FDF", true);
+	if (!fdf.mlx)
+		exit_error_map(fdf.map, -1, MLX_ERR);
 	fdf.screen = mlx_new_image(fdf.mlx, WIDTH, HEIGHT);
 	return (&fdf);
 }
