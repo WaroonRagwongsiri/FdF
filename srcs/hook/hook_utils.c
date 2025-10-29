@@ -6,7 +6,7 @@
 /*   By: waragwon <waragwon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:53:22 by waragwon          #+#    #+#             */
-/*   Updated: 2025/10/28 20:20:59 by waragwon         ###   ########.fr       */
+/*   Updated: 2025/10/29 11:04:42 by waragwon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_fit_to_window(t_map *map)
 
 void	hooks(mlx_key_data_t keydata, void *param)
 {
-	hook_reset(keydata, param);
 	hook_reset(keydata, param);
 	hook_rotate(keydata, param);
 	hook_view(keydata, param);
